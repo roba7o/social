@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Using the 'name=' part of the urls.py
+LOGIN_REDIRECT_URL = 'dashboard'    # if no next parameter
+LOGIN_URL = 'login'                 # The Url to redirect the user to login
+LOGOUT_URL = 'logout'               # the URL to redirect the user to logout
 
 # Application definition
 
