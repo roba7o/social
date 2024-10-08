@@ -32,6 +32,9 @@ LOGIN_REDIRECT_URL = 'dashboard'    # if no next parameter
 LOGIN_URL = 'login'                 # The Url to redirect the user to login
 LOGOUT_URL = 'logout'               # the URL to redirect the user to logout
 
+# Email backend (class that will be used to send emails)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Application definition
 
 INSTALLED_APPS = [
