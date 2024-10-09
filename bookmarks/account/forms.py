@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from .models import Profile
 
 class LoginForm(forms.Form):
     username = forms.CharField()
@@ -27,3 +28,21 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError("Passwords don't match.")
         return cd['password2']
     
+class UserEditForm(forms.ModelForm):
+    """
+    Allows users to edit their firstname, lastname & email:
+    (attributes of the built in django user model
+    """
+    class Meta:
+        model = get_user_model()
+        fields = ['first_name', 'last_name', 'email']
+
+class ProfileEditForm(forms.ModelForm):
+    """
+    Allows users to edit the profile data that is sabved in the custom Profile model
+    users can edit DOB and photo
+    """
+    class Meta:
+        model = Profile
+        fields = ['date_of_birth', 'photo']
+
